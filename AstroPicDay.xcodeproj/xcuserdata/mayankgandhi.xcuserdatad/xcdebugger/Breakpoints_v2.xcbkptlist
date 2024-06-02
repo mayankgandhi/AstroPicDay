@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "96E54C7A-42F7-4735-84DD-9DC8A29CE719"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A332E316-CCB8-41EE-8CD6-BE3DB16D3DDC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PictureList/Sources/PictureList/PictureList.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "962C8072-3AEA-41A5-95EE-CE3F8BFA4F48"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PictureList/Sources/PictureList/PictureList.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "962C8072-3AEA-41A5-95EE-CE3F8BFA4F48 - 7d04726b9ec9a1e7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (PictureList.FetchPicturesResponse) -&gt; PictureList.PictureListItem in closure #1 @Sendable (ComposableArchitecture.Send&lt;PictureList.PictureList.Action&gt;) async throws -&gt; () in closure #1 (inout PictureList.PictureList.State, PictureList.PictureList.Action) -&gt; ComposableArchitecture.Effect&lt;PictureList.PictureList.Action&gt; in PictureList.PictureList.body.getter : some"
+                  moduleName = "AstroPicDay"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mayankgandhi/Development/AstroPicDay/PictureList/Sources/PictureList/PictureList.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "224">
+               </Location>
+               <Location
+                  uuid = "962C8072-3AEA-41A5-95EE-CE3F8BFA4F48 - 7d04726b9ec9a1e7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (PictureList.FetchPicturesResponse) -&gt; PictureList.PictureListItem in closure #1 @Sendable (ComposableArchitecture.Send&lt;PictureList.PictureList.Action&gt;) async throws -&gt; () in closure #1 (inout PictureList.PictureList.State, PictureList.PictureList.Action) -&gt; ComposableArchitecture.Effect&lt;PictureList.PictureList.Action&gt; in PictureList.PictureList.body.getter : some"
+                  moduleName = "AstroPicDay"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mayankgandhi/Development/AstroPicDay/PictureList/Sources/PictureList/PictureList.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "192">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FB607088-4047-4745-AD9C-70876269AB40"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PictureList/Sources/PictureList/PictureList.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "FB607088-4047-4745-AD9C-70876269AB40 - 898bfcf25c5983ba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable (ComposableArchitecture.Send&lt;PictureList.PictureList.Action&gt;) async throws -&gt; () in closure #1 (inout PictureList.PictureList.State, PictureList.PictureList.Action) -&gt; ComposableArchitecture.Effect&lt;PictureList.PictureList.Action&gt; in PictureList.PictureList.body.getter : some"
+                  moduleName = "AstroPicDay"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mayankgandhi/Development/AstroPicDay/PictureList/Sources/PictureList/PictureList.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "132">
+               </Location>
+               <Location
+                  uuid = "FB607088-4047-4745-AD9C-70876269AB40 - 7d04726b9ec9a208"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (PictureList.FetchPicturesResponse) -&gt; PictureList.PictureListItem in closure #1 @Sendable (ComposableArchitecture.Send&lt;PictureList.PictureList.Action&gt;) async throws -&gt; () in closure #1 (inout PictureList.PictureList.State, PictureList.PictureList.Action) -&gt; ComposableArchitecture.Effect&lt;PictureList.PictureList.Action&gt; in PictureList.PictureList.body.getter : some"
+                  moduleName = "AstroPicDay"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mayankgandhi/Development/AstroPicDay/PictureList/Sources/PictureList/PictureList.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "212">
+               </Location>
+               <Location
+                  uuid = "FB607088-4047-4745-AD9C-70876269AB40 - 7d04726b9ec9a208"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (PictureList.FetchPicturesResponse) -&gt; PictureList.PictureListItem in closure #1 @Sendable (ComposableArchitecture.Send&lt;PictureList.PictureList.Action&gt;) async throws -&gt; () in closure #1 (inout PictureList.PictureList.State, PictureList.PictureList.Action) -&gt; ComposableArchitecture.Effect&lt;PictureList.PictureList.Action&gt; in PictureList.PictureList.body.getter : some"
+                  moduleName = "AstroPicDay"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mayankgandhi/Development/AstroPicDay/PictureList/Sources/PictureList/PictureList.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "180">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9E658C34-948C-4577-AD41-4DDAECABB77F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PictureList/Sources/PictureList/Networking/FetchPicturesRequest.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "init(baseURL:apiKey:pathComponents:startDate:endDate:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9E658C34-948C-4577-AD41-4DDAECABB77F - 313075d1ceae3423"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PictureList.FetchPicturesRequest.init(baseURL: Foundation.URL, apiKey: Swift.String, pathComponents: Swift.Array&lt;Swift.String&gt;, startDate: Swift.String, endDate: Swift.String) -&gt; PictureList.FetchPicturesRequest"
+                  moduleName = "AstroPicDay"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mayankgandhi/Development/AstroPicDay/PictureList/Sources/PictureList/Networking/FetchPicturesRequest.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "644">
+               </Location>
+               <Location
+                  uuid = "9E658C34-948C-4577-AD41-4DDAECABB77F - 313075d1ceae3423"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PictureList.FetchPicturesRequest.init(baseURL: Foundation.URL, apiKey: Swift.String, pathComponents: Swift.Array&lt;Swift.String&gt;, startDate: Swift.String, endDate: Swift.String) -&gt; PictureList.FetchPicturesRequest"
+                  moduleName = "AstroPicDay"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mayankgandhi/Development/AstroPicDay/PictureList/Sources/PictureList/Networking/FetchPicturesRequest.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "660">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "71253239-30A1-4976-A75B-C7BDF2C3615C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Utils/Sources/Utils/NetworkURL.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "constructURL()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DC118ED6-DAB2-4B5C-A97B-0918D0A52323"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PictureList/Sources/PictureList/PictureListReducer/PictureList.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6F1ECD0B-1FB8-48A9-8A30-B7EAFF67A3B0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PictureList/Sources/PictureList/PictureListReducer/PictureList.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BBAA8BBF-6BC8-44AD-AB0F-03A99422715E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PictureList/Sources/PictureList/PictureListReducer/PictureList.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "88575DAE-6869-4A65-8264-8D2A9A8E475A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PictureList/Sources/PictureList/PictureListReducer/PictureList.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8E291B2E-1492-43C3-B49C-4229C4D98B3B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PictureList/Sources/PictureList/PictureListReducer/PictureList.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

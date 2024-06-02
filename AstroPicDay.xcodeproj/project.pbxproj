@@ -14,6 +14,7 @@
 		5C5E99772C0B1D2800083388 /* AstroPicDayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5E99762C0B1D2800083388 /* AstroPicDayTests.swift */; };
 		5C5E99812C0B1D2800083388 /* AstroPicDayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5E99802C0B1D2800083388 /* AstroPicDayUITests.swift */; };
 		5C5E99832C0B1D2800083388 /* AstroPicDayUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5E99822C0B1D2800083388 /* AstroPicDayUITestsLaunchTests.swift */; };
+		5C917BBF2C0B3D9E000D54CF /* PictureList in Frameworks */ = {isa = PBXBuildFile; productRef = 5C917BBE2C0B3D9E000D54CF /* PictureList */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,8 @@
 		5C5E997C2C0B1D2800083388 /* AstroPicDayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AstroPicDayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C5E99802C0B1D2800083388 /* AstroPicDayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstroPicDayUITests.swift; sourceTree = "<group>"; };
 		5C5E99822C0B1D2800083388 /* AstroPicDayUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstroPicDayUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5C5E99B72C0B320400083388 /* Utils */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Utils; sourceTree = "<group>"; };
+		5C5E99B82C0B343000083388 /* PictureList */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PictureList; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C917BBF2C0B3D9E000D54CF /* PictureList in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,10 +78,13 @@
 		5C5E99592C0B1D2700083388 = {
 			isa = PBXGroup;
 			children = (
+				5C5E99B82C0B343000083388 /* PictureList */,
+				5C5E99B72C0B320400083388 /* Utils */,
 				5C5E99642C0B1D2700083388 /* AstroPicDay */,
 				5C5E99752C0B1D2800083388 /* AstroPicDayTests */,
 				5C5E997F2C0B1D2800083388 /* AstroPicDayUITests */,
 				5C5E99632C0B1D2700083388 /* Products */,
+				5C917BBD2C0B3D9E000D54CF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +134,13 @@
 			path = AstroPicDayUITests;
 			sourceTree = "<group>";
 		};
+		5C917BBD2C0B3D9E000D54CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +157,9 @@
 			dependencies = (
 			);
 			name = AstroPicDay;
+			packageProductDependencies = (
+				5C917BBE2C0B3D9E000D54CF /* PictureList */,
+			);
 			productName = AstroPicDay;
 			productReference = 5C5E99622C0B1D2700083388 /* AstroPicDay.app */;
 			productType = "com.apple.product-type.application";
@@ -588,6 +605,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5C917BBE2C0B3D9E000D54CF /* PictureList */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PictureList;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5C5E995A2C0B1D2700083388 /* Project object */;
 }
