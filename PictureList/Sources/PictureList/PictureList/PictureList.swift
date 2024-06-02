@@ -33,7 +33,7 @@ struct PictureList {
         }
     }
     
-    enum Action {
+    enum Action: Equatable {
         case pictureListItems(IdentifiedActionOf<PictureListItem>)
         case fetchPicturesOfTheWeek
         case presentPicturesOfTheWeek([PictureListItem.State])
@@ -52,7 +52,9 @@ struct PictureList {
                     return .send(.presentError("Error occurred - Please try again"))
                 }
                 return .run(priority: .userInitiated, operation: { send in
-                    let request = FetchPicturesRequest(startDate: try customDateFormatter.format(inputDate: today, to: "yyyy-MM-dd"), endDate: try customDateFormatter.format(inputDate: sevenDaysAgo, to: "yyyy-MM-dd"))
+                    let todayDateString = try customDateFormatter.format(inputDate: sevenDaysAgo, to: "yyyy-MM-dd")
+                    let sevenDaysAgoDateString = try customDateFormatter.format(inputDate: today, to: "yyyy-MM-dd")
+                    let request = FetchPicturesRequest(startDate: todayDateString, endDate:  sevenDaysAgoDateString)
                     let response: [FetchPicturesResponse] = try await requestController.fetch(request: request)
                     let pictureListItems = try response.map { responseObj in
                         let date = try customDateFormatter.format(date: responseObj.date, from: "yyyy-MM-dd", to: "d MMM yyyy")
@@ -60,6 +62,7 @@ struct PictureList {
                     }
                     await send(.presentPicturesOfTheWeek(pictureListItems))
                 }, catch: { error, send in
+                    dump(error)
                     await send(.presentError("Error occurred - Please try again"))
                 })
                 

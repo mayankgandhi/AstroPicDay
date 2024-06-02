@@ -23,7 +23,7 @@ struct FetchPicturesRequest: NetworkURL {
         self.baseURL = baseURL
         self.apiKey = apiKey
         self.pathComponents = pathComponents
-        self.queryParams = ["start_date": "2024-04-02",
+        self.queryParams = ["start_date": startDate,
                             "end_date": endDate]
     }
     

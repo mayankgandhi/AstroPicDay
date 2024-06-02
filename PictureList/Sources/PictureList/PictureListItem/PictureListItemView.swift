@@ -45,6 +45,12 @@ struct PictureListItemView: View {
                 }
                 .padding(.horizontal, 12)
             }
+            .onAppear {
+                store.send(.cellAppeared)
+            }
+            .onDisappear {
+                store.send(.cellDisappeared)
+            }
         }
         
     }

@@ -41,7 +41,8 @@ public struct PictureListView: View {
                             }
                         
                     case .results:
-                        LazyVStack(alignment: .leading, spacing: 12) {
+                        
+                        VStack(alignment: .leading, spacing: 12) {
                             ForEachStore(store.scope(state: \.pictureListItems, action: \.pictureListItems)) { pictureListItemStore in
                                 NavigationLink {
                                     PictureListDetailView(detail: PictureListDetail.State(title: pictureListItemStore.title,
@@ -50,12 +51,6 @@ public struct PictureListView: View {
                                                                                           explanation: pictureListItemStore.explanation))
                                 } label: {
                                     PictureListItemView(store: pictureListItemStore)
-                                        .onAppear {
-                                            store.send(.pictureListItems(.element(id: pictureListItemStore.id, action: .cellAppeared)))
-                                        }
-                                        .onDisappear {
-                                            store.send(.pictureListItems(.element(id: pictureListItemStore.id, action: .cellDisappeared)))
-                                        }
                                 }
                                 .buttonStyle(PlainButtonStyle())
                             }

@@ -15,7 +15,11 @@ struct PictureListItem {
     
     @ObservableState
     struct State: Equatable, Identifiable, Codable {
-        var id: UUID = UUID()
+        
+        var id: String {
+            date
+        }
+        
         let date, explanation: String
         let hdurl: URL?
         let mediaType, serviceVersion, title: String
@@ -25,7 +29,7 @@ struct PictureListItem {
     }
     
     @CasePathable
-    enum Action {
+    enum Action: Equatable {
         case cellAppeared
         case cellDisappeared
         
