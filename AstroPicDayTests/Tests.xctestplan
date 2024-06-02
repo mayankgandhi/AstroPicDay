@@ -1,0 +1,31 @@
+{
+  "configurations" : [
+    {
+      "id" : "6DBC74A8-0DD4-4F76-A5A8-5065C3164BB9",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "PictureListTests",
+        "name" : "PictureListTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/Utils",
+        "identifier" : "UtilsTests",
+        "name" : "UtilsTests"
+      }
+    }
+  ],
+  "version" : 1
+}

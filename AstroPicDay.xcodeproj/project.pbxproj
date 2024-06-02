@@ -35,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5C487F2A2C0CC86C00D3ECE3 /* Tests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = Tests.xctestplan; path = AstroPicDayTests/Tests.xctestplan; sourceTree = "<group>"; };
 		5C5E99622C0B1D2700083388 /* AstroPicDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AstroPicDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C5E99652C0B1D2700083388 /* AstroPicDayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstroPicDayApp.swift; sourceTree = "<group>"; };
 		5C5E99672C0B1D2700083388 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -78,6 +79,7 @@
 		5C5E99592C0B1D2700083388 = {
 			isa = PBXGroup;
 			children = (
+				5C487F2A2C0CC86C00D3ECE3 /* Tests.xctestplan */,
 				5C5E99B82C0B343000083388 /* PictureList */,
 				5C5E99B72C0B320400083388 /* Utils */,
 				5C5E99642C0B1D2700083388 /* AstroPicDay */,

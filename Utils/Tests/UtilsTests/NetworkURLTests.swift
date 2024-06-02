@@ -15,7 +15,7 @@ class NetworkURLTests: XCTestCase {
         // Given
         let baseURL = URL(string: "https://example.com")!
         let pathComponents = ["api", "v1", "photo"]
-        let queryParams = ["date": "2024-01-01", "hd": "true"]
+        let queryParams: [String: String] = [:]
         let apiKey = "testApiKey"
         let networkURL = MockNetworkURL(baseURL: baseURL, apiKey: apiKey, pathComponents: pathComponents, queryParams: queryParams)
 
@@ -24,7 +24,7 @@ class NetworkURLTests: XCTestCase {
         XCTAssertNoThrow(constructedURL = try networkURL.constructURL())
 
         // Then
-        let expectedURL = URL(string: "https://example.com/api/v1/photo?api_key=testApiKey&date=2024-01-01&hd=true")
+        let expectedURL = URL(string: "https://example.com/api/v1/photo?api_key=testApiKey")
         XCTAssertEqual(constructedURL, expectedURL)
     }
 

@@ -21,7 +21,7 @@ class RequestControllerTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        mockRequestController = MockRequestController()
+        mockRequestController = MockRequestController(mockResponses: [:])
     }
 
     override func tearDown() {

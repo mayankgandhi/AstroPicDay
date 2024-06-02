@@ -12,11 +12,11 @@ enum RequestControllerError: Error {
     case APIRequestFailed
 }
 
-protocol RequestControlling {
+public protocol RequestControlling {
     func fetch<RequestURL: NetworkURL, Response: Codable>(request: RequestURL) async throws -> [Response]
 }
 
-public final class RequestController: RequestControlling {
+public class RequestController: RequestControlling {
     
     public func fetch<RequestURL: NetworkURL, Response: Codable>(request: RequestURL) async throws -> [Response] {
         let urlSessionShared = URLSession.shared

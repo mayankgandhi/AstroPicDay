@@ -41,6 +41,10 @@ extension CustomDateFormatter: DependencyKey {
     public static var liveValue: CustomDateFormatter {
         CustomDateFormatter()
     }
+    
+    public static var testValue: CustomDateFormatter {
+        CustomDateFormatter()
+    }
 }
 
 public extension DependencyValues {
