@@ -16,13 +16,13 @@ public class MockRequestController: RequestController {
         self.mockResponses = mockResponses
         self.shouldThrowError = shouldThrowError
     }
-
+    
     public override func fetch<RequestURL: NetworkURL, Response: Codable>(request: RequestURL) async throws -> [Response] {
         if shouldThrowError {
             throw URLError(.badServerResponse)
         }
         let url = try request.constructURL().absoluteString
-       
+        
         guard let mockData = mockResponses[url] else {
             throw URLError(.fileDoesNotExist)
         }
@@ -41,7 +41,7 @@ public class MockRequestControllerWithSingularData: RequestController {
         self.mockResponse = mockResponse
         self.shouldThrowError = shouldThrowError
     }
-
+    
     public override func fetch<RequestURL: NetworkURL, Response: Codable>(request: RequestURL) async throws -> [Response] {
         if shouldThrowError {
             throw URLError(.badServerResponse)
@@ -50,8 +50,15 @@ public class MockRequestControllerWithSingularData: RequestController {
         guard let mockData = mockResponse else {
             throw URLError(.fileDoesNotExist)
         }
-        
-        let decode = try JSONDecoder().decode([Response].self, from: mockData)
-        return decode
+        do {
+            let decode = try JSONDecoder().decode([Response].self, from: mockData)
+            return decode
+        } catch {
+            if let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: mockData) {
+                throw errorResponse
+            } else {
+                throw error
+            }
+        }
     }
 }

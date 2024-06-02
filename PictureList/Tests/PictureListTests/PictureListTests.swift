@@ -49,4 +49,35 @@ final class PictureListTests: XCTestCase {
         
     }
 
+    func testFetchPicturesOfTheWeek_APIFailure() async throws {
+        
+        let mockData = """
+        {
+          "code": 400,
+          "msg": "Date must be between Jun 16, 1995 and Jun 02, 2024.",
+          "service_version": "v1"
+        }
+        """.data(using: .utf8)!
+        
+        let requestController = MockRequestControllerWithSingularData(mockResponse: mockData)
+                
+        let store = TestStore(
+            initialState: PictureList.State(),
+            reducer: { PictureList() }
+        ) {
+            $0.requestController = requestController
+        }
+
+        XCTAssertEqual(store.state.viewState, .loading)
+        
+        await store.send(.fetchPicturesOfTheWeek)
+
+        await store.receive(.presentError("Date must be between Jun 16, 1995 and Jun 02, 2024.")) {
+            $0.viewState = .error("Date must be between Jun 16, 1995 and Jun 02, 2024.")
+        }
+        
+    }
+
+    
+    
 }

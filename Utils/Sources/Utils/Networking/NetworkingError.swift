@@ -7,8 +7,9 @@
 
 import Foundation
 
-enum AstroPicDayError: Error {
+enum AstroPicDayError: Error, Equatable {
     case unableToCreateURL
     case requestFailed
     case unableToParseDate
+    case errorReceived(String)
 }

@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct ErrorResponse: Codable, Sendable {
-    let code: Int
-    let msg, serviceVersion: String
+public struct ErrorResponse: Codable, Sendable, Error {
+    public let code: Int
+    public let msg, serviceVersion: String
 
     enum CodingKeys: String, CodingKey {
         case code, msg

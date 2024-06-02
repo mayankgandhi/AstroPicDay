@@ -9,13 +9,6 @@ import Foundation
 import ComposableArchitecture
 import Utils
 
-///▿ Optional("{\n  \"error\": {\n    \"code\": \"OVER_RATE_LIMIT\",\n    \"message\": \"You have exceeded your rate limit. Try again later or contact us at https://api.nasa.gov:443/contact/ for assistance\"\n  }\n}")
-
-#warning("Get the Error response handling with parsing and showing the error message to the user")
-#warning("Fix the image layout issue in PictureListItem and detail view")
-#warning("Add an enum for the short date type")
-#warning("Optimise for memory allocation")
-
 @Reducer
 struct PictureList {
     
@@ -63,7 +56,12 @@ struct PictureList {
                     await send(.presentPicturesOfTheWeek(pictureListItems))
                 }, catch: { error, send in
                     dump(error)
-                    await send(.presentError("Error occurred - Please try again"))
+                    if let errorResponse = error as? ErrorResponse {
+                        await send(.presentError(errorResponse.msg))
+                    } else {
+                        await send(.presentError("Error occurred - Please try again"))
+                    }
+                   
                 })
                 
             case .presentPicturesOfTheWeek(let pictureListItems):
