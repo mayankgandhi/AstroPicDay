@@ -11,31 +11,52 @@ import ComposableArchitecture
 
 struct PictureListDetailView: View {
     
-    let pictureListItem: PictureListItem.State
+    @Perception.Bindable var store: StoreOf<PictureListDetail>
+    
+    init(detail: PictureListDetail.State) {
+        self.store = Store(initialState: detail, reducer: {
+            PictureListDetail()
+        })
+    }
     
     var body: some View {
-        ScrollView(.vertical, showsIndicators: true) {
-            VStack(alignment: .leading, spacing: 12) {
-                Text(pictureListItem.title)
-                    .font(.headline)
-                
-                AsyncImage(url: pictureListItem.hdurl ?? pictureListItem.url) { image in
-                    image
-                        .resizable()
-                        .scaledToFit()
-                } placeholder: {
-                    ProgressView()
-                }
+        WithPerceptionTracking {
+            ScrollView(.vertical, showsIndicators: true) {
+                VStack(alignment: .leading, spacing: 12) {
+                    Text(store.title)
+                        .font(.headline)
+                    
+                    Group {
+                        if let data = store.image {
+                            if let uiImage = UIImage(data: data) {
+                                Image(uiImage:  uiImage)
+                                    .resizable()
+                                    .scaledToFit()
+                            } else {
+                                VStack(alignment: .center) {
+                                    Image(uiImage: UIImage(systemName: "exclamationmark.triangle.fill") ?? .add)
+                                }
+                            }
+                        } else {
+                            ProgressView()
+                        }
+                    }
+                    .frame(maxWidth: .infinity, minHeight: 200)
 
-                VStack(alignment: .leading, spacing: 8) {
-                    Text(pictureListItem.explanation)
-                    Text(pictureListItem.date)
-                        .font(.footnote)
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text(store.explanation)
+                        Text(store.formattedDate)
+                            .font(.footnote)
+                    }
+                }
+                .padding(.all, 12)
+                .navigationTitle(Text(verbatim: store.formattedDate))
+                .navigationBarTitleDisplayMode(.automatic)
+                .task {
+                    store.send(.fetchImage)
                 }
             }
-            .padding(.all, 12)
-            .navigationTitle(Text(verbatim: pictureListItem.date))
-            .navigationBarTitleDisplayMode(.automatic)
+
         }
     }
 }

@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import ComposableArchitecture
+import Utils
 
 struct PictureListItemView: View {
     
@@ -17,14 +18,22 @@ struct PictureListItemView: View {
         WithPerceptionTracking {
             VStack(alignment: .leading, spacing: 12) {
                 
-                if let data = store.image {
-                    Image(uiImage: UIImage(data: data) ?? UIImage.add)
-                        .resizable()
-                        .scaledToFit()
-                } else {
-                    ProgressView()
-                        .frame(height: 200) // Placeholder height
+                Group {
+                    if let data = store.image {
+                        if let uiImage = UIImage(data: data) {
+                            Image(uiImage:  uiImage)
+                                .resizable()
+                                .scaledToFit()
+                        } else {
+                            VStack(alignment: .center) {
+                                Image(uiImage: UIImage(systemName: "exclamationmark.triangle.fill") ?? .add)
+                            }
+                        }
+                    } else {
+                        ProgressView()
+                    }
                 }
+                .frame(maxWidth: .infinity, minHeight: 200)
                 
                 Group {
                     Text(store.title)

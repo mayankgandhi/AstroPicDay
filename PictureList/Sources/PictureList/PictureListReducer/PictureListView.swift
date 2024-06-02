@@ -44,7 +44,10 @@ public struct PictureListView: View {
                         LazyVStack(alignment: .leading, spacing: 12) {
                             ForEachStore(store.scope(state: \.pictureListItems, action: \.pictureListItems)) { pictureListItemStore in
                                 NavigationLink {
-                                    PictureListDetailView(pictureListItem: pictureListItemStore.state)
+                                    PictureListDetailView(detail: PictureListDetail.State(title: pictureListItemStore.title,
+                                                                                          imageURL:  pictureListItemStore.url,
+                                                                                          formattedDate: pictureListItemStore.date,
+                                                                                          explanation: pictureListItemStore.explanation))
                                 } label: {
                                     PictureListItemView(store: pictureListItemStore)
                                         .onAppear {
@@ -57,7 +60,6 @@ public struct PictureListView: View {
                                 .buttonStyle(PlainButtonStyle())
                             }
                         }
-                        
                     }
                 }
                 .refreshable {

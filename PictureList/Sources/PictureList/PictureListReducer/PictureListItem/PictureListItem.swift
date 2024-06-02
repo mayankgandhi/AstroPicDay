@@ -24,6 +24,7 @@ struct PictureListItem {
         var image: Data?
     }
     
+    @CasePathable
     enum Action {
         case cellAppeared
         case cellDisappeared
@@ -45,6 +46,7 @@ struct PictureListItem {
                     await send(.presentImage(data))
                 } catch: { error, send in
                     dump(error)
+                    #warning("Handle this error scenario")
                 }
                 
             case .cellDisappeared:
