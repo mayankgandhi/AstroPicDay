@@ -18,7 +18,7 @@ struct PictureListItemView: View {
             AsyncImage(url: pictureListItem.url) { phase in
                 switch phase {
                 case .empty:
-                    ShimmerView()
+                    ProgressView()
                         .frame(height: 200) // Placeholder height
                 case .success(let image):
                     image
