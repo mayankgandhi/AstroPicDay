@@ -43,7 +43,7 @@ struct PictureListDetailView: View {
                     }
                     .frame(maxWidth: .infinity, minHeight: 200)
 
-                    VStack(alignment: .leading, spacing: 8) {
+                    VStack(alignment: .leading, spacing: 16) {
                         Text(store.explanation)
                         Text(store.formattedDate)
                             .font(.footnote)
