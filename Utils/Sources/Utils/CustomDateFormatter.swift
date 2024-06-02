@@ -10,8 +10,8 @@ import Dependencies
 
 public struct CustomDateFormatter {
     
-    private let inputFormatter: DateFormatter
-    private let outputFormatter: DateFormatter
+     let inputFormatter: DateFormatter
+     let outputFormatter: DateFormatter
     
     init() {
         let inputFormatter = DateFormatter()
