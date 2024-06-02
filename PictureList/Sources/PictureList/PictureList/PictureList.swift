@@ -41,7 +41,7 @@ struct PictureList {
                 state.viewState = .loading
                 let calendar = Calendar.current
                 let today = Date()
-                guard let sevenDaysAgo = calendar.date(byAdding: .day, value: -7, to: today) else {
+                guard let sevenDaysAgo = calendar.date(byAdding: .day, value: -6, to: today) else {
                     return .send(.presentError("Error occurred - Please try again"))
                 }
                 return .run(priority: .userInitiated, operation: { send in

@@ -47,6 +47,7 @@ struct PictureListDetailView: View {
                         Text(store.explanation)
                         Text(store.formattedDate)
                             .font(.footnote)
+                            .foregroundColor(.gray)
                     }
                 }
                 .padding(.all, 12)
