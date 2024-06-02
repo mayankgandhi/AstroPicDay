@@ -25,18 +25,19 @@ struct PictureList {
     @ObservableState
     struct State: Equatable {
         var viewState: ViewEnumeration
-        var pictureListItems: IdentifiedArrayOf<PictureListItem>
+        var pictureListItems: IdentifiedArrayOf<PictureListItem.State>
         
         init() {
             self.viewState = .loading
-            self.pictureListItems = IdentifiedArrayOf<PictureListItem>()
+            self.pictureListItems = IdentifiedArrayOf<PictureListItem.State>()
         }
     }
     
     enum Action {
+        case pictureListItems(IdentifiedActionOf<PictureListItem>)
         case fetchPicturesOfTheWeek
-        case presentPicturesOfTheWeek([PictureListItem])
-        case presentError
+        case presentPicturesOfTheWeek([PictureListItem.State])
+        case presentError(String)
     }
     
     var body: some ReducerOf<Self> {
@@ -48,19 +49,18 @@ struct PictureList {
                 let calendar = Calendar.current
                 let today = Date()
                 guard let sevenDaysAgo = calendar.date(byAdding: .day, value: -7, to: today) else {
-                    return .send(.presentError)
+                    return .send(.presentError("Error occurred - Please try again"))
                 }
                 return .run(priority: .userInitiated, operation: { send in
                     let request = FetchPicturesRequest(startDate: try customDateFormatter.format(inputDate: today, to: "yyyy-MM-dd"), endDate: try customDateFormatter.format(inputDate: sevenDaysAgo, to: "yyyy-MM-dd"))
                     let response: [FetchPicturesResponse] = try await requestController.fetch(request: request)
                     let pictureListItems = try response.map { responseObj in
                         let date = try customDateFormatter.format(date: responseObj.date, from: "yyyy-MM-dd", to: "d MMM yyyy")
-                        return PictureListItem(date: date, explanation: responseObj.explanation, hdurl: responseObj.hdurl, mediaType: responseObj.mediaType, serviceVersion: responseObj.serviceVersion, title: responseObj.title, url: responseObj.url, copyright: responseObj.copyright)
+                        return PictureListItem.State(date: date, explanation: responseObj.explanation, hdurl: responseObj.hdurl, mediaType: responseObj.mediaType, serviceVersion: responseObj.serviceVersion, title: responseObj.title, url: responseObj.url, copyright: responseObj.copyright)
                     }
                     await send(.presentPicturesOfTheWeek(pictureListItems))
                 }, catch: { error, send in
-                    dump(error)
-                    await send(.presentError)
+                    await send(.presentError("Error occurred - Please try again"))
                 })
                 
             case .presentPicturesOfTheWeek(let pictureListItems):
@@ -68,10 +68,16 @@ struct PictureList {
                 state.viewState = .results
                 return .none
                 
-            case .presentError:
-                state.viewState = .error
+            case .presentError(let error):
+                state.viewState = .error(error)
+                return .none
+            
+            default:
                 return .none
             }
+        }
+        .forEach(\.pictureListItems, action: \.pictureListItems) {
+            PictureListItem()
         }
     }
     

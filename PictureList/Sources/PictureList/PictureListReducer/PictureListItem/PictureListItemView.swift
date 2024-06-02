@@ -7,42 +7,46 @@
 
 import Foundation
 import SwiftUI
+import ComposableArchitecture
 
 struct PictureListItemView: View {
     
-    let pictureListItem: PictureListItem
+    @Perception.Bindable var store: StoreOf<PictureListItem>
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            
-            AsyncImage(url: pictureListItem.url) { phase in
-                switch phase {
-                case .empty:
-                    ProgressView()
-                        .frame(height: 200) // Placeholder height
-                case .success(let image):
-                    image
-                        .resizable()
-                        .scaledToFit()
-                case .failure:
-                    Image(systemName: "photo")
-                        .resizable()
-                        .scaledToFit()
-                @unknown default:
-                    EmptyView()
+        WithPerceptionTracking {
+            VStack(alignment: .leading, spacing: 12) {
+                
+                AsyncImage(url: store.url) { phase in
+                    switch phase {
+                    case .empty:
+                        ProgressView()
+                            .frame(height: 200) // Placeholder height
+                        
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .scaledToFit()
+                        
+                    case .failure:
+                        Image(systemName: "exclamationmark.triangle")
+                            .symbolRenderingMode(.hierarchical)
+                            .foregroundColor(.red)
+                        
+                    @unknown default:
+                        EmptyView()
+                    }
                 }
+                
+                Text(store.title)
+                    .font(.headline)
+                    .multilineTextAlignment(.leading)
+                
+                Text(store.date)
+                    .font(.subheadline)
             }
-            
-            
-            Text(pictureListItem.title)
-                .font(.title)
-                .multilineTextAlignment(.leading)
-            
-            Text(pictureListItem.date)
-                .font(.subheadline)
         }
-        .padding()
-        .cornerRadius(12)
+        
     }
     
 }

@@ -24,8 +24,13 @@ public struct PictureListView: View {
             WithPerceptionTracking {
                 ScrollView(.vertical, showsIndicators: true) {
                     switch store.viewState {
-                    case .error:
-                        Text("Error")
+                    case .error(let error):
+                        VStack(alignment: .center ,spacing: 12) {
+                            Image(systemName: "exclamationmark.triangle")
+                                .symbolRenderingMode(.hierarchical)
+                                .foregroundColor(.red)
+                            Text(error)
+                        }
                         
                     case .loading:
                         ProgressView()
@@ -36,12 +41,13 @@ public struct PictureListView: View {
                         
                     case .results:
                         LazyVStack(alignment: .leading, spacing: 12) {
-                            ForEach(store.pictureListItems) { pictureListItem in
+                            ForEachStore(store.scope(state: \.pictureListItems, action: \.pictureListItems)) { store in
                                 NavigationLink {
-                                    PictureListDetailView(pictureListItem: pictureListItem)
+                                    PictureListDetailView(pictureListItem: store.state)
                                 } label: {
-                                    PictureListItemView(pictureListItem: pictureListItem)
+                                    PictureListItemView(store: store)
                                 }
+                                .buttonStyle(PlainButtonStyle())
                             }
                         }
                     }

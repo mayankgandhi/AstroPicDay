@@ -11,7 +11,7 @@ import ComposableArchitecture
 
 struct PictureListDetailView: View {
     
-    let pictureListItem: PictureListItem
+    let pictureListItem: PictureListItem.State
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: true) {
@@ -19,7 +19,7 @@ struct PictureListDetailView: View {
                 Text(pictureListItem.title)
                     .font(.headline)
                 
-                AsyncImage(url: pictureListItem.hdurl) { image in
+                AsyncImage(url: pictureListItem.hdurl ?? pictureListItem.url) { image in
                     image
                         .resizable()
                         .scaledToFit()
