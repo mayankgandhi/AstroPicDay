@@ -24,6 +24,7 @@ public struct PictureListView: View {
             WithPerceptionTracking {
                 ScrollView(.vertical, showsIndicators: true) {
                     switch store.viewState {
+                        
                     case .error(let error):
                         VStack(alignment: .center ,spacing: 12) {
                             Image(systemName: "exclamationmark.triangle")
@@ -41,15 +42,22 @@ public struct PictureListView: View {
                         
                     case .results:
                         LazyVStack(alignment: .leading, spacing: 12) {
-                            ForEachStore(store.scope(state: \.pictureListItems, action: \.pictureListItems)) { store in
+                            ForEachStore(store.scope(state: \.pictureListItems, action: \.pictureListItems)) { pictureListItemStore in
                                 NavigationLink {
-                                    PictureListDetailView(pictureListItem: store.state)
+                                    PictureListDetailView(pictureListItem: pictureListItemStore.state)
                                 } label: {
-                                    PictureListItemView(store: store)
+                                    PictureListItemView(store: pictureListItemStore)
+                                        .onAppear {
+                                            store.send(.pictureListItems(.element(id: pictureListItemStore.id, action: .cellAppeared)))
+                                        }
+                                        .onDisappear {
+                                            store.send(.pictureListItems(.element(id: pictureListItemStore.id, action: .cellDisappeared)))
+                                        }
                                 }
                                 .buttonStyle(PlainButtonStyle())
                             }
                         }
+                        
                     }
                 }
                 .refreshable {

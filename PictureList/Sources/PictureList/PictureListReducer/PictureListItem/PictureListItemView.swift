@@ -17,33 +17,24 @@ struct PictureListItemView: View {
         WithPerceptionTracking {
             VStack(alignment: .leading, spacing: 12) {
                 
-                AsyncImage(url: store.url) { phase in
-                    switch phase {
-                    case .empty:
-                        ProgressView()
-                            .frame(height: 200) // Placeholder height
-                        
-                    case .success(let image):
-                        image
-                            .resizable()
-                            .scaledToFit()
-                        
-                    case .failure:
-                        Image(systemName: "exclamationmark.triangle")
-                            .symbolRenderingMode(.hierarchical)
-                            .foregroundColor(.red)
-                        
-                    @unknown default:
-                        EmptyView()
-                    }
+                if let data = store.image {
+                    Image(uiImage: UIImage(data: data) ?? UIImage.add)
+                        .resizable()
+                        .scaledToFit()
+                } else {
+                    ProgressView()
+                        .frame(height: 200) // Placeholder height
                 }
                 
-                Text(store.title)
-                    .font(.headline)
-                    .multilineTextAlignment(.leading)
-                
-                Text(store.date)
-                    .font(.subheadline)
+                Group {
+                    Text(store.title)
+                        .font(.headline)
+                        .multilineTextAlignment(.leading)
+                    
+                    Text(store.date)
+                        .font(.subheadline)
+                }
+                .padding(.horizontal, 12)
             }
         }
         

@@ -11,6 +11,8 @@ import ComposableArchitecture
 @Reducer
 struct PictureListItem {
     
+    @Dependency(\.networkFetcher) var networkFetcher
+    
     @ObservableState
     struct State: Equatable, Identifiable, Codable {
         var id: UUID = UUID()
@@ -19,20 +21,34 @@ struct PictureListItem {
         let mediaType, serviceVersion, title: String
         let url: URL
         let copyright: String?
+        var image: Data?
     }
     
     enum Action {
         case cellAppeared
         case cellDisappeared
+        
+        case presentImage(Data)
     }
     
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
-            case .cellAppeared:
+                
+            case .presentImage(let imageData):
+                state.image = imageData
                 return .none
                 
+            case .cellAppeared:
+                return .run(priority: .userInitiated) { [url = state.url] send in
+                    let data = try await networkFetcher.fetchData(from: url)
+                    await send(.presentImage(data))
+                } catch: { error, send in
+                    dump(error)
+                }
+                
             case .cellDisappeared:
+                networkFetcher.cancelFetch(for: state.url)
                 return .none
             }
         }
