@@ -32,3 +32,7 @@ The Application is divided into 2 packages:
 
 - Unit testing is implemented for `PictureListView` and some utility tools with all tests passing.
 
+## Demo
+
+https://github.com/mayankgandhi/AstroPicDay/assets/38678844/554934c4-cfbd-4df6-b023-2288db094587
+
