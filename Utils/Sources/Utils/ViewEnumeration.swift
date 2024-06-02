@@ -8,5 +8,5 @@
 import Foundation
 
 public enum ViewEnumeration: Equatable, Hashable {
-    case loading, results, error
+    case loading, results, error(String)
 }
