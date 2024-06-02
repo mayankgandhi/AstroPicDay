@@ -20,8 +20,8 @@ public final class RequestController: RequestControlling {
     
     public func fetch<RequestURL: NetworkURL, Response: Codable>(request: RequestURL) async throws -> [Response] {
         let urlSessionShared = URLSession.shared
-        let (data, _) = try await urlSessionShared.data(from: request.constructURL())
-        dump(String(bytes: data, encoding: .utf8))
+        let urlRequest = URLRequest(url: try request.constructURL(), cachePolicy: .returnCacheDataElseLoad)
+        let (data, _) = try await urlSessionShared.data(for: urlRequest)
         let decode = try JSONDecoder().decode([Response].self, from: data)
         return decode
     }
